@@ -10,7 +10,7 @@ X = []
 Y = []
 for post in posts:
     x = [len(post['hashtags']), len(post['mentions']), post['commentsCount'],
-         post['profile']['followersCount'], post['profile']['followsCount'], post['profile']['postsCount']]
+         post['profile']['followersCount'], post['profile']['followsCount'], post['profile']['postsCount'], post['weekday'], post['avg_comment']]
     y = post['likesCount']
     X.append(x)
     Y.append(y)
