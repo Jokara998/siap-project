@@ -5,7 +5,6 @@ import time
 from utils import get_json_data
 from os.path import exists
 
-images = []
 posts = get_json_data('./datasets/dataset_all.json')
 config = get_json_data('config.json')
 
