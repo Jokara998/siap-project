@@ -1,15 +1,14 @@
-import imquality.brisque as brisque
-import PIL.Image
-from utils import get_json_data
-import numpy as np
-from os.path import exists
+
 import json
+from os.path import exists
+
+import imquality.brisque as brisque
+import numpy as np
+import PIL.Image
+
+from utils import get_json_data, normalize
 
 posts = get_json_data('./datasets/dataset_all.json')
-
-
-def normalize(value, data):
-    return (value - np.min(data)) / (np.max(data) - np.min(data))
 
 
 def calculate_quality():
