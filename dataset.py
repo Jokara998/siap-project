@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split
 
 from utils import get_json_data
 
-features = ['hastags', 'mentions', 'comment count', 'follwers',
+features = ['hastags', 'mentions', 'comment count', 'followers',
             'following', 'post count', 'weekday', 'avg_comments']
 
 
@@ -27,3 +27,5 @@ def get_dataset():
 
     X_train, X_test, y_train, y_test = train_test_split(
         X, Y, test_size=0.2, random_state=62)
+
+    return [X_train, X_test, y_train, y_test]
