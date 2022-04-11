@@ -40,5 +40,5 @@ def normalize_data(data):
 data = calculate_quality()
 data = normalize_data(data)
 
-with open('./datasets/dataset_images.json', "w", encoding='utf8') as file:
+with open('./datasets/dataset_images_quality.json', "w", encoding='utf8') as file:
     json.dump(data, file, indent=4)
