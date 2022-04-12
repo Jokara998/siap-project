@@ -24,7 +24,7 @@ login_button.click()
 time.sleep(10)
 
 for post in posts:
-    file_exists = exists("./images/" + post['shortCode'] + ".png")
+    file_exists = exists("./images/" + post['shortCode'] + ".jpeg")
     if file_exists:
         continue
 

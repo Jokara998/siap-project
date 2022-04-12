@@ -3,7 +3,6 @@ import json
 from os.path import exists
 
 import imquality.brisque as brisque
-import numpy as np
 import PIL.Image
 
 from utils import get_json_data, normalize
