@@ -12,7 +12,7 @@ model = VGG16()
 data = []
 for img in images:
     path = './images/'+img['shortCode']+'.jpeg'
-    obj = 'seashore'
+    obj = ''
 
     if exists(path):
         image = load_img(path, target_size=(224, 224, 3))
