@@ -2266,5 +2266,37 @@
     {
         "object": "plate",
         "shortCode": "CbnUsrELhw7"
+    },
+    {
+        "object": "beer_bottle",
+        "shortCode": "B0LJRD-nI7P"
+    },
+    {
+        "object": "goblet",
+        "shortCode": "BznTbuGnx0i"
+    },
+    {
+        "object": "water_bottle",
+        "shortCode": "Bx67_8lHIB5"
+    },
+    {
+        "object": "standard_poodle",
+        "shortCode": "BxF7NgLH0mK"
+    },
+    {
+        "object": "book_jacket",
+        "shortCode": "BxCPJOvnVCJ"
+    },
+    {
+        "object": "perfume",
+        "shortCode": "BuwGHbnHe9m"
+    },
+    {
+        "object": "pill_bottle",
+        "shortCode": "Bt3WpuTHAqC"
+    },
+    {
+        "object": "hourglass",
+        "shortCode": "Bt0bitonF-n"
     }
 ]

@@ -2,6 +2,6 @@
 2. Add pulled data to new_profiles.json
 3. Run format-data.py
 4. 2 file will be overwritten new_comments.json i new_profiles.json
-5. Object from new_profiles.json just add to dataset_instagram_posts.json
+5. Object from new_posts.json just add to dataset_instagram_posts.json
 6. In new_comments.json are links that will be used for apify to pull comments (zuzka/instagram-comment-scraper)
 7. Pull data from apify and add objects to dataset_instagram_comments.json
