@@ -14,19 +14,6 @@ score = rfr.score(X_train, y_train)
 print("R-squared:", score)
 
 
-# param_grid = {
-#     'ccp_alpha': [
-#         1, 1.14, 1.2, 1.5],
-#     'max_features': [3, 7, 9, 10, 11],
-#     'max_depth': [7, 9, 11, 15],
-#     'n_estimators': [10, 100, 320, 350]
-# }
-
-# grid_clf = GridSearchCV(RandomForestRegressor(), param_grid, cv=10, verbose=2)
-# grid_clf.fit(X_train, y_train)
-
-# print(grid_clf. best_params_)
-
 importances = list(rfr.feature_importances_)
 [print(f'{f}: {i}')
  for f, i in zip(features, importances)]

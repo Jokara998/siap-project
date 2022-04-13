@@ -3,6 +3,7 @@ import json
 from os.path import exists
 
 import imquality.brisque as brisque
+# Blind/Referenceless Image Spatial Quality Evaluator
 import PIL.Image
 
 from utils import get_json_data, normalize
