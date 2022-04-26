@@ -2298,5 +2298,49 @@
     {
         "object": "hourglass",
         "shortCode": "Bt0bitonF-n"
+    },
+    {
+        "object": "pay-phone",
+        "shortCode": "CcQfT-IKjR5"
+    },
+    {
+        "object": "espresso_maker",
+        "shortCode": "CcDrVbXK_m5"
+    },
+    {
+        "object": "abacus",
+        "shortCode": "CcBEXvXKRc5"
+    },
+    {
+        "object": "bobsled",
+        "shortCode": "Cb8DW_uq8mb"
+    },
+    {
+        "object": "hair_spray",
+        "shortCode": "Cb4pjRiqvUp"
+    },
+    {
+        "object": "perfume",
+        "shortCode": "Cb4j5yhqVy7"
+    },
+    {
+        "object": "barbershop",
+        "shortCode": "Cb2GrlUKmpr"
+    },
+    {
+        "object": "scoreboard",
+        "shortCode": "Cbzuy2lNBsT"
+    },
+    {
+        "object": "crate",
+        "shortCode": "CbzV93ZquQT"
+    },
+    {
+        "object": "shoe_shop",
+        "shortCode": "Cbxhzs_qDaO"
+    },
+    {
+        "object": "turnstile",
+        "shortCode": "CbxDeNIKgja"
     }
 ]
