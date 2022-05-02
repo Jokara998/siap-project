@@ -3,6 +3,7 @@ import statistics
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
+import seaborn as sn
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 
@@ -40,22 +41,24 @@ def get_dataset():
             continue
         if(y > 800 or y < 50):
             continue
+        if(quality > 0.85):
+            continue
         X.append(x)
         Y.append(y)
 
     minimum = min(Y)
     maximum = max(Y)
 
-    #r = range(minimum, maximum, 10)
-    #df = pd.DataFrame(X)
-    #df.columns = features
+    # r = range(minimum, maximum, 10)
+    # df = pd.DataFrame(X)
+    # df.columns = features
    # print(df.head())
   #  n, bins, patches = plt.hist(x=Y, color='#0504aa',
    #                             alpha=0.7, rwidth=0.85)
    # plt.grid(axis='y', alpha=0.75)
     # plt.xlabel('Value')
   #  ##plt.ylabel('Frequency')
-    #plt.title('My Very Own Histogram')
+    # plt.title('My Very Own Histogram')
    # plt.show()
     # print(len(Y))
     # print(statistics.median(df['followers']))
@@ -89,6 +92,12 @@ def showData():
         x = [len(post['hashtags']), len(post['mentions']), post['commentsCount'],
              post['profile']['followersCount'], post['profile']['followsCount'], post['profile']['postsCount'], post['weekday'], post['avg_comment'], quality, obj[0]]
         y = post['likesCount']
+        if(post['profile']['postsCount'] > 200):
+            continue
+        if(y > 800 or y < 50):
+            continue
+        if(quality > 0.85):
+            continue
         X.append(x)
         Y.append(y)
 
@@ -98,6 +107,10 @@ def showData():
     r = range(minimum, maximum, 10)
     df = pd.DataFrame(X)
     df.columns = features
+    df['y'] = Y
+
+    sn.heatmap(df.corr(), annot=True)
+    plt.show()
 
     print('Mean: ', statistics.mean(Y))
     print('Median: ', statistics.median(Y))
@@ -152,22 +165,27 @@ def showData():
     plt.show()
     # --------------------
 
-    #plt.bar(x=df['followers'], y=Y)
+    # plt.bar(x=df['followers'], y=Y)
     # print(type(df['followers']))
     # print(len(df['followers']))
-    # print(len(Y))
-    # plt.bar(list(range(0, len(df['followers']))), list(df['followers']),
-    #         align='edge', width=0.4, color='g')
-    # plt.bar(list(range(0, len(df['followers']))), Y,
-    #         align='edge', width=0.4, color='c')
-    # # plt.bar([0, 1, 2, 3], df.x4, align='edge', width=-0.4, color='r')
-    # # plt.bar([0, 1, 2, 3], df.x3, align='edge', width=-0.4, color='y')
-    # plt.grid(axis='y', alpha=0.75)
-    # plt.xlabel('Value')
-    # plt.ylabel('Frequency')
-    # plt.title('My Very Own Histogram')
-    # plt.show()
+    print(len(Y))
+    data = list(zip(list(df['followers']), Y))
+    data = sorted(data, key=lambda x:  x[1])
 
+    xxx = [x[0] for x in data]
+    yyy = [x[1] for x in data]
+
+    plt.bar(list(range(0, len(xxx))), xxx,
+            align='edge', width=0.4, color='g')
+    plt.bar(list(range(0, len(xxx))), yyy,
+            align='edge', width=0.4, color='c')
+    # plt.bar([0, 1, 2, 3], df.x4, align='edge', width=-0.4, color='r')
+    # plt.bar([0, 1, 2, 3], df.x3, align='edge', width=-0.4, color='y')
+    plt.grid(axis='y', alpha=0.75)
+    plt.xlabel('lajkovi')
+    plt.ylabel('pratioci')
+    plt.title('Pratioci / lajkovi')
+    plt.show()
 
     # print(len(Y))
     # print(statistics.median(df['followers']))

@@ -34,6 +34,9 @@ def main():
     posts = get_json_data('./datasets/dataset_instagram_posts.json')
     comments = get_json_data('./datasets/dataset_instagram_comments.json')
     profiles = get_json_data('./datasets/dataset_instagram_profiles.json')
+    print(len(profiles))
+    print(len(posts))
+    print(len(comments))
 
     for post in posts:
         post['comments'] = [
@@ -41,11 +44,16 @@ def main():
         polarities = [sia.polarity_scores(
             c['text'])['compound'] for c in post['comments']]
         post['avg_comment'] = statistics.mean(
-            polarities) if len(polarities) > 0 else 0
+            polarities) if len(polarities) > 0 else 0.5
         post['weekday'] = datetime.datetime.strptime(
             post['timestamp'].split('.')[0], '%Y-%m-%dT%H:%M:%S').weekday()
 
-        post['profile'] = [p for p in profiles if p['id'] == post['ownerId']][0]
+        try:
+            post['profile'] = [
+                p for p in profiles if p['id'] == post['ownerId']][0]
+        except:
+            print(post['ownerId'])
+            continue
         post['profile'].pop('latestPosts', None)
     with open('./datasets/dataset_all.json', "w", encoding='utf8') as file:
         json.dump(posts, file, indent=4)

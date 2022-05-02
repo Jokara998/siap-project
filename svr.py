@@ -1,33 +1,16 @@
 import numpy as np
 from sklearn import metrics
-from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import GridSearchCV
+from sklearn.svm import SVR
 
 from dataset import get_dataset, get_features
 
 X_train, X_test, y_train, y_test = get_dataset()
 features = get_features()
-rfr = RandomForestRegressor(max_features=10,
-                            n_estimators=320,  ccp_alpha=1.14, max_depth=11, random_state=1).fit(X_train, y_train)
+rfr = SVR(gamma='auto', kernel='rbf', degree=3,
+          C=100, epsilon=0.5).fit(X_train, y_train)
 score = rfr.score(X_train, y_train)
-
-
-# param_grid = {
-#     'ccp_alpha': [
-#         1, 1.14, 1.2, 1.5],
-#     'max_features': [3, 7, 9, 10, 11],
-#     'max_depth': [7, 9, 11, 15],
-#     'n_estimators': [10, 100, 320, 350]
-# }
-
-# grid_clf = GridSearchCV(RandomForestRegressor(), param_grid, cv=10, verbose=2)
-# grid_clf.fit(X_train, y_train)
-
-# print(grid_clf. best_params_)
-
-importances = list(rfr.feature_importances_)
-[print(f'{f}: {i}')
- for f, i in zip(features, importances)]
+print("R-squared:", score)
 
 
 predictions = np.floor(rfr.predict(X_test))
