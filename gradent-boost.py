@@ -1,9 +1,14 @@
 import numpy as np
+import pandas as pd
 from sklearn import metrics
 from sklearn.ensemble import GradientBoostingRegressor
 from sklearn.model_selection import GridSearchCV
 
 from dataset import get_dataset, get_features
+
+features2 = ['hashtags', 'mentions', 'comment count', 'followers',
+             'following', 'post count', 'weekday', 'avg_comments', 'quality', 'object', 'y']
+
 
 X_train, X_test, y_train, y_test = get_dataset()
 features = get_features()
@@ -20,6 +25,23 @@ importances = list(rfr.feature_importances_)
 
 
 predictions = np.floor(rfr.predict(X_test))
+
+
+# best/worst results
+abs_vals = abs(predictions-y_test)
+pair = sorted(zip(abs_vals, X_test, y_test), key=lambda x: x[0])
+xx = []
+for i in range(10):
+    # xd=pair[-i-1] for worst
+    xd = pair[-1-i]
+    a = list(xd[1])
+    a.append(xd[2])
+    xx.append(a)
+
+df = pd.DataFrame(xx)
+df.columns = features2
+print(df.head(10))
+
 
 print('Mean Absolute Error (MAE):',
       metrics.mean_absolute_error(y_test, predictions))

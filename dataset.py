@@ -92,12 +92,7 @@ def showData():
         x = [len(post['hashtags']), len(post['mentions']), post['commentsCount'],
              post['profile']['followersCount'], post['profile']['followsCount'], post['profile']['postsCount'], post['weekday'], post['avg_comment'], quality, obj[0]]
         y = post['likesCount']
-        if(post['profile']['postsCount'] > 200):
-            continue
-        if(y > 800 or y < 50):
-            continue
-        if(quality > 0.85):
-            continue
+
         X.append(x)
         Y.append(y)
 
@@ -186,6 +181,7 @@ def showData():
     plt.ylabel('pratioci')
     plt.title('Pratioci / lajkovi')
     plt.show()
+
 
     # print(len(Y))
     # print(statistics.median(df['followers']))
